@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 export default function Ingredients() {
+  const [searchTerm, setSearchTerm] = useState('');
   const [selectedImage, setSelectedImage] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
@@ -67,10 +68,20 @@ export default function Ingredients() {
   return (
     <section className="ingredients-container">
       <h1>Ingredient Checker</h1>
-      <p>Upload a product image to check what's in your beauty products or ask questions about ingredients.</p>
+      <p>Search for ingredients or upload a product image to check what's in your beauty products.</p>
+      
+      <div className="search-container">
+        <input 
+          type="text" 
+          className="search-box" 
+          placeholder="Search for an ingredient..." 
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+      </div>
       
       <div className="upload-section">
-        <h2>Upload a Product Image</h2>
+        <h2>Or Upload a Product Image</h2>
         <p>Take a photo of your product's ingredient list and we'll analyze it for you.</p>
         
         <div className="upload-container">
