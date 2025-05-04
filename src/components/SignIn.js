@@ -1,4 +1,3 @@
-
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react';
 import { useAuth } from '../AuthContext';
@@ -25,7 +24,7 @@ export default function SignIn() {
   }, [isAuthenticated, navigate]);
   
   
-  const API_URL = 'http://localhost/connect.php';
+  const API_URL = 'http://localhost/Kalsoums%20Hackathon/beautyhackxs/auth.php';
   
   async function handleSubmit(e) {
     if (e) e.preventDefault();
