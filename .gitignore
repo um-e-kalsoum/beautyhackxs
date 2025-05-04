@@ -1,4 +1,6 @@
 # dependencies
+node_modules/
+node_modules/*
 /node_modules
 /.pnp
 .pnp.js
@@ -22,4 +24,6 @@ yarn-error.log*
 
 # cache
 .cache
-*.pack 
+*.pack
+*.eslintcache
+auth_log.txt 
