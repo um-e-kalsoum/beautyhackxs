@@ -1,5 +1,6 @@
 <?php
 //test
+//test2
 try {
     $dbh = new PDO(
         "mysql:host=localhost;dbname=hackathon",
