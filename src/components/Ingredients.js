@@ -6,6 +6,9 @@ export default function Ingredients() {
   const [imagePreview, setImagePreview] = useState(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [analysisResults, setAnalysisResults] = useState(null);
+  const [chatMessage, setChatMessage] = useState('');
+  const [chatHistory, setChatHistory] = useState([]);
+  const [isProcessing, setIsProcessing] = useState(false);
   
   const handleImageChange = (e) => {
     if (e.target.files && e.target.files[0]) {
@@ -37,6 +40,29 @@ export default function Ingredients() {
     setSelectedImage(null);
     setImagePreview(null);
     setAnalysisResults(null);
+  };
+  
+  const handleSendMessage = (e) => {
+    e.preventDefault();
+    if (!chatMessage.trim()) return;
+    
+    // Add user message to chat history
+    const userMessage = { sender: 'user', text: chatMessage };
+    setChatHistory([...chatHistory, userMessage]);
+    
+    // Simulate AI processing
+    setIsProcessing(true);
+    
+    // Simulate AI response (in a real implementation, this would call Gemini API)
+    setTimeout(() => {
+      const aiResponse = { 
+        sender: 'ai', 
+        text: `Regarding your question about "${chatMessage}": In a real implementation, Gemini AI would provide detailed information about these ingredients, their benefits, potential risks, and suitable alternatives.` 
+      };
+      setChatHistory([...chatHistory, userMessage, aiResponse]);
+      setChatMessage('');
+      setIsProcessing(false);
+    }, 1500);
   };
   
   return (
@@ -104,6 +130,49 @@ export default function Ingredients() {
             <p>{analysisResults.message}</p>
           </div>
         )}
+      </div>
+      
+      {/* Text-based Chatbox */}
+      <div className="gemini-chatbox ingredients-chat">
+        <h3>Ask Questions About Ingredients</h3>
+        <p className="powered-by">Powered by Gemini AI</p>
+        
+        <div className="chat-messages">
+          {chatHistory.length === 0 ? (
+            <p className="chat-placeholder">Your conversation will appear here. Ask questions about beauty ingredients!</p>
+          ) : (
+            chatHistory.map((msg, index) => (
+              <div key={index} className={`chat-message ${msg.sender}`}>
+                <span className="message-text">{msg.text}</span>
+              </div>
+            ))
+          )}
+          {isProcessing && (
+            <div className="chat-message ai processing">
+              <span className="message-text">Gemini is analyzing...</span>
+            </div>
+          )}
+        </div>
+        
+        <form className="chat-input" onSubmit={handleSendMessage}>
+          <input
+            type="text"
+            placeholder="Ask about ingredients or products..."
+            value={chatMessage}
+            onChange={(e) => setChatMessage(e.target.value)}
+            disabled={isProcessing}
+          />
+          <button 
+            type="submit" 
+            className="send-btn"
+            disabled={!chatMessage.trim() || isProcessing}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+          </button>
+        </form>
       </div>
     </section>
   );

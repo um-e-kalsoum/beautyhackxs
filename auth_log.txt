@@ -20,3 +20,11 @@
 2025-05-04 02:57:15 - Login attempt for username: Umarahmer1@gmail.com
 2025-05-04 02:57:15 - User found, checking password
 2025-05-04 02:57:15 - Password verified, login successful
+2025-05-04 04:19:35 - Request from: ::1
+2025-05-04 04:19:35 - Attempting to connect to database: hackathon
+2025-05-04 04:19:35 - Connected successfully
+2025-05-04 04:19:35 - Raw request data: {"action":"login","username":"asif.kalsoum@gmail.com","password":"123"}
+2025-05-04 04:19:35 - Action: login
+2025-05-04 04:19:35 - Login attempt for username: asif.kalsoum@gmail.com
+2025-05-04 04:19:35 - User found, checking password
+2025-05-04 04:19:35 - Password verified, login successful

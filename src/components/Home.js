@@ -14,7 +14,7 @@ export default function Home() {
           <p>Accessible beauty for everyone. We help you discover the perfect beauty products tailored to your needs through ingredient analysis and smart technology.</p>
         </div>
         <div className="cta-buttons">
-          <NavLink to="/camera" className="btn primary-btn">Try Our Camera</NavLink>
+          <NavLink to="/camera" className="btn primary-btn">Try Our Facial Scanner</NavLink>
           <NavLink to="/ingredients" className="btn secondary-btn">Explore Ingredients</NavLink>
         </div>
       </section>

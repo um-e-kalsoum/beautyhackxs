@@ -1,4 +1,3 @@
-
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../AuthContext';
 import icon from '../assets/iconBH.png';   
@@ -22,9 +21,8 @@ export default function Layout({ children }) {
         <nav>
           <ul>
             <li><NavLink exact to="/" activeClassName="active">About Us</NavLink></li>
-            <li><NavLink to="/camera" activeClassName="active">Camera</NavLink></li>
+            <li><NavLink to="/camera" activeClassName="active">Facial Scanner</NavLink></li>
             <li><NavLink to="/ingredients" activeClassName="active">Ingredients</NavLink></li>
-            <li><NavLink to="/beauty-buddy" activeClassName="active">Beauty Buddy</NavLink></li>
             <li>
               {user ? (
                 <button onClick={handleSignOut} className="sign-in-btn">
