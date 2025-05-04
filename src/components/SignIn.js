@@ -24,7 +24,7 @@ export default function SignIn() {
   }, [isAuthenticated, navigate]);
   
   
-  const API_URL = 'http://localhost/Kalsoums%20Hackathon/beautyhackxs/auth.php';
+  const API_URL = 'http://localhost/hackathon2/beautyhackxs/auth.php';
   
   async function handleSubmit(e) {
     if (e) e.preventDefault();
